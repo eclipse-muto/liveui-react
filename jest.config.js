@@ -9,10 +9,12 @@ module.exports = {
   },
   coverageDirectory: 'coverage',
   collectCoverage: true,
-  collectCoverageFrom: ['src/*.{js,jsx}', 'src/**/*.{js,jsx}', '!src/**/*.test.{js,jsx}', '!src/index.js', '!src/**/**/liveui-core.js'],
+  collectCoverageFrom: ['src/*.{js,jsx}', 'src/**/*.{js,jsx}', 'src/*.{ts,tsx}', 'src/**/*.{ts,tsx}', '!src/**/*.test.{js,jsx}', '!src/index.js', '!src/**/**/liveui-core.js'],
   coverageReporters: ['json', 'text', 'lcov'],
   moduleDirectories: ['node_modules', 'src'],
-  testRegex: 'tests/.*\\.test\\.js$',
+  transform: {
+    "^.+\\.(js|jsx|tsx|ts)$": "babel-jest",
+  },
   moduleNameMapper: {
     '.*\\.(css|less|styl|scss|sass)$': '<rootDir>/internals/mocks/cssModule.js',
     '.*\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/internals/mocks/image.js',
